@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FaunaNusantara & Dunia - Portal Artikel Satwa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: #FAF8F5;
+            color: #1F2937;
+        }
+        h1, h2, h3, .font-serif-title {
+            font-family: 'Merriweather', serif;
+        }
+        .line-clamp-3 {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+    <!-- Navbar -->
+    <header class="bg-[#1B4332] text-white sticky top-0 z-40 shadow-md">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+                <span class="text-2xl">🌿</span>
+                <span class="font-serif-title font-bold text-xl tracking-tight text-[#F4F1DE]">Fauna<span class="text-[#E07A5F]">Nusantara</span></span>
+            </div>
+            <nav class="hidden md:flex space-x-6 text-sm font-medium text-[#D8F3DC]">
+                <a href="#artikel" class="hover:text-white transition">Artikel Terbaru</a>
+                <a href="#kategori" class="hover:text-white transition">Kategori</a>
+                <a href="#tentang" class="hover:text-white transition">Tentang Kami</a>
+            </nav>
+            <div class="relative w-48 sm:w-64">
+                <input type="text" id="searchInput" placeholder="Cari artikel satwa..." 
+                    class="w-full bg-[#2D6A4F] text-white placeholder-[#B7E4C7] text-sm rounded-full pl-4 pr-8 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#E07A5F]">
+                <span class="absolute right-3 top-1.5 text-sm">🔍</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-[#1B4332] via-[#2D6A4F] to-[#40916C] text-white py-14 px-4">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <span class="inline-block bg-[#E07A5F] text-white text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full mb-4">
+                    Artikel Pilihan Minggu Ini
+                </span>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight mb-4 text-[#FAF8F5]">
+                    Menjelajahi Keajaiban & Rahasia Dunia Satwa Liar
+                </h1>
+                <p class="text-[#D8F3DC] text-base sm:text-lg mb-6 leading-relaxed">
+                    Temukan kisah mendalam seputar perilaku unik, habitat alami, dan upaya konservasi satwa langka di Indonesia maupun penjuru dunia.
+                </p>
+                <a href="#artikel" class="inline-block bg-[#E07A5F] hover:bg-[#D0694E] text-white font-semibold px-6 py-3 rounded-lg shadow transition">
+                    Mulai Membaca
+                </a>
+            </div>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-[#52B788]/30">
+                <img src="https://images.unsplash.com/photo-1546182990-dffeafbe841d?auto=format&fit=crop&w=900&q=80" 
+                     alt="Singa Afrika" class="w-full h-72 sm:h-80 object-cover">
+                <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                    <p class="text-xs text-[#B7E4C7] font-semibold">MAMALIA • AFRIKA</p>
+                    <p class="text-white font-serif-title font-bold text-lg">Strategi Berburu Kolektif Sang Raja Sabana</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Filter Kategori -->
+    <section id="kategori" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-10 pb-4 w-full">
+        <div class="flex flex-wrap items-center justify-between gap-4 border-b border-gray-200 pb-4">
+            <h2 class="text-2xl font-bold text-[#1B4332]">Eksplorasi Artikel</h2>
+            <div class="flex flex-wrap gap-2" id="categoryButtons">
+                <button data-cat="Semua" class="cat-btn active bg-[#1B4332] text-white px-4 py-1.5 rounded-full text-sm font-medium transition">Semua</button>
+                <button data-cat="Mamalia" class="cat-btn bg-white text-gray-700 hover:bg-[#D8F3DC] border border-gray-200 px-4 py-1.5 rounded-full text-sm font-medium transition">Mamalia</button>
+                <button data-cat="Burung" class="cat-btn bg-white text-gray-700 hover:bg-[#D8F3DC] border border-gray-200 px-4 py-1.5 rounded-full text-sm font-medium transition">Burung</button>
+                <button data-cat="Biota Laut" class="cat-btn bg-white text-gray-700 hover:bg-[#D8F3DC] border border-gray-200 px-4 py-1.5 rounded-full text-sm font-medium transition">Biota Laut</button>
+                <button data-cat="Reptil" class="cat-btn bg-white text-gray-700 hover:bg-[#D8F3DC] border border-gray-200 px-4 py-1.5 rounded-full text-sm font-medium transition">Reptil</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Daftar Artikel -->
+    <main id="artikel" class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-grow w-full">
+        <div id="articlesGrid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-7">
+            <!-- Kartu artikel dirender lewat JavaScript -->
+        </div>
+        <div id="emptyState" class="hidden text-center py-16">
+            <p class="text-4xl mb-3">🐾</p>
+            <h3 class="text-xl font-bold text-gray-700">Artikel tidak ditemukan</h3>
+            <p class="text-gray-500 text-sm mt-1">Coba gunakan kata kunci lain atau pilih kategori "Semua".</p>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer id="tentang" class="bg-[#1B4332] text-[#D8F3DC] mt-16 py-10 px-4">
+        <div class="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4 text-sm">
+            <div>
+                <span class="font-serif-title font-bold text-lg text-white">Fauna<span class="text-[#E07A5F]">Nusantara</span></span>
+                <p class="text-xs text-[#B7E4C7] mt-1">Media edukasi & literasi konservasi satwa liar.</p>
+            </div>
+            <p class="text-xs text-[#B7E4C7]">&copy; 2026 FaunaNusantara. Dibuat untuk edukasi dan pelestarian alam.</p>
+        </div>
+    </footer>
+
+    <!-- Modal Baca Artikel -->
+    <div id="articleModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 hidden items-center justify-center p-4">
+        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl relative">
+            <button id="closeModal" class="sticky top-4 float-right mr-4 mt-4 bg-black/60 hover:bg-black text-white w-9 h-9 rounded-full flex items-center justify-center font-bold transition">
+                ✕
+            </button>
+            <img id="modalImage" src="" alt="" class="w-full h-64 object-cover">
+            <div class="p-6 sm:p-8">
+                <div class="flex items-center gap-3 text-xs font-semibold mb-3">
+                    <span id="modalCategory" class="bg-[#D8F3DC] text-[#1B4332] px-3 py-1 rounded-full"></span>
+                    <span id="modalReadTime" class="text-gray-500"></span>
+                    <span id="modalDate" class="text-gray-500"></span>
+                </div>
+                <h2 id="modalTitle" class="text-2xl sm:text-3xl font-bold text-gray-900 mb-4 leading-snug"></h2>
+                <div id="modalContent" class="text-gray-700 leading-relaxed space-y-4 text-base"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const articles = [
+            {
+                id: 1,
+                title: "Orangutan Kalimantan: Arsitek Kanopi Hutan Hujan Tropis",
+                category: "Mamalia",
+                date: "14 Nov 2026",
+                readTime: "4 menit baca",
+                image: "https://images.unsplash.com/photo-1540573133985-87b6da6d54a9?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Setiap malam, orangutan membangun sarang baru di atas pepohonan tinggi. Kebiasaan ini berperan penting dalam regenerasi cahaya di lantai hutan.",
+                content: [
+                    "Orangutan Kalimantan (Pongo pygmaeus) dikenal sebagai salah satu primata paling cerdas di dunia. Berbeda dengan kera besar lainnya, orangutan menghabiskan sebagian besar hidupnya di atas kanopi pohon.",
+                    "Setiap sore menjelang matahari terbenam, mereka merangkai ranting dan dedaunan dalam waktu kurang dari 10 menit untuk membuat sarang tidur yang nyaman dan kokoh. Saat sarang-sarang lama ini mengering dan rontok, celah cahaya matahari terbuka menuju lantai hutan, membantu bibit pohon baru tumbuh.",
+                    "Selain itu, sebagai pemakan buah-buahan (frugivora), orangutan menyebarkan biji-bijian melintasi area hutan yang luas melalui kotorannya, menjadikan mereka penjaga alami keanekaragaman hayati Kalimantan."
+                ]
+            },
+            {
+                id: 2,
+                title: "Cenderawasih Merah: Tarian Memukau dari Tanah Papua",
+                category: "Burung",
+                date: "10 Nov 2026",
+                readTime: "3 menit baca",
+                image: "https://images.unsplash.com/photo-1552728089-57bdde30beb3?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Dijuluki sebagai 'Bird of Paradise', burung endemik Raja Ampat ini memiliki ritual tarian kawin yang kompleks dan bulu berwarna mencolok.",
+                content: [
+                    "Cenderawasih Merah (Paradisaea rubra) merupakan satwa endemik yang hanya dapat ditemukan di hutan dataran rendah Pulau Waigeo dan Batanta, Raja Ampat, Papua Barat.",
+                    "Pejantan dewasa memiliki bulu berwarna merah menyala di bagian sisi tubuh, punggung kuning keemasan, serta dua helai bulu ekor panjang menyerupai pita hitam melengkung. Untuk menarik perhatian betina, pejantan berkumpul di satu pohon khusus dan melakukan tarian akrobatik sambil berkicau nyaring.",
+                    "Keberadaan burung surga ini sangat bergantung pada kelestarian hutan primer yang tidak terganggu aktivitas penebangan liar."
+                ]
+            },
+            {
+                id: 3,
+                title: "Pari Manta Karang: Raksasa Lembut Penjelajah Arus Nusantara",
+                category: "Biota Laut",
+                date: "05 Nov 2026",
+                readTime: "5 menit baca",
+                image: "https://images.unsplash.com/photo-1544552866-d3ed42536cfd?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Dengan lebar bentang sayap mencapai 5 meter, pari manta bergerak anggun menyaring plankton di perairan Komodo dan Nusa Penida.",
+                content: [
+                    "Pari Manta Karang (Mobula alfredi) adalah salah satu penghuni laut paling karismatik di perairan Indonesia. Meskipun berukuran raksasa, hewan ini sama sekali tidak berbahaya karena tidak memiliki sengat beracun pada ekornya.",
+                    "Mereka memiliki rasio ukuran otak terbesar dibandingkan ikan lainnya, memungkinkan mereka mengenali lokasi 'stasiun pembersihan' tempat ikan-ikan kecil memakan parasit di tubuh mereka.",
+                    "Indonesia kini telah menetapkan perlindungan penuh bagi pari manta di seluruh wilayah perairannya guna mendukung ekowisata bahari berkelanjutan."
+                ]
+            },
+            {
+                id: 4,
+                title: "Komodo: Fakta Ilmiah di Balik Kadal Purba Terbesar Dunia",
+                category: "Reptil",
+                date: "01 Nov 2026",
+                readTime: "4 menit baca",
+                image: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Bukan sekadar bakteri di air liur, penelitian modern mengungkap kelenjar bisa khusus yang dimiliki naga purba asal Nusa Tenggara Timur ini.",
+                content: [
+                    "Komodo (Varanus komodoensis) mampu tumbuh hingga panjang 3 meter dengan berat lebih dari 70 kilogram. Sebagai predator puncak di ekosistem Pulau Komodo dan Rinca, mereka mengandalkan indra penciuman tajam dari lidah bercabangnya.",
+                    "Selama bertahun-tahun, ilmuwan mengira mangsa komodo mati akibat infeksi bakteri dari gigitannya. Namun, riset MRI modern membuktikan bahwa rahang bawah komodo memiliki kelenjar bisa yang menurunkan tekanan darah dan mencegah pembekuan darah mangsa secara cepat.",
+                    "Kemampuan adaptasi luar biasa ini membuat komodo bertahan hidup sejak jutaan tahun silam."
+                ]
+            },
+            {
+                id: 5,
+                title: "Harimau Sumatra: Sang Penjaga Keseimbangan Ekosistem Bukit Barisan",
+                category: "Mamalia",
+                date: "27 Okt 2026",
+                readTime: "4 menit baca",
+                image: "https://images.unsplash.com/photo-1561731216-c3a4d99437d5?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Sebagai subspesies harimau terkecil yang masih bertahan, corak loreng rapatnya berfungsi sebagai kamuflase sempurna di rimba Sumatra.",
+                content: [
+                    "Harimau Sumatra (Panthera tigris sumatrae) adalah satu-satunya subspesies harimau di Indonesia yang masih bertahan setelah punahnya harimau Bali dan Jawa.",
+                    "Ukuran tubuhnya yang lebih ringkas memudahkan mereka bergerak lincah menembus vegetasi hutan hujan tropis yang lebat. Bahkan, mereka memiliki selaput tipis di sela-sela jari kaki yang menjadikan mereka perenang andal.",
+                    "Melindungi populasi harimau berarti menjaga seluruh rantai makanan dan sumber air bersih bagi jutaan masyarakat di sekitar hutan Sumatra."
+                ]
+            },
+            {
+                id: 6,
+                title: "Penyu Hijau: Navigator Samudra yang Selalu Pulang ke Pantai Kelahiran",
+                category: "Biota Laut",
+                date: "20 Okt 2026",
+                readTime: "3 menit baca",
+                image: "https://images.unsplash.com/photo-1518467166778-b88f373ffec7?auto=format&fit=crop&w=800&q=80",
+                excerpt: "Memanfaatkan medan magnet bumi layaknya kompas alami, penyu hijau menempuh ribuan kilometer melintasi samudra untuk bertelur.",
+                content: [
+                    "Penyu Hijau (Chelonia mydas) dinamai bukan dari warna tempurungnya, melainkan dari warna lapisan lemak di bawah cangkangnya yang kehijauan akibat pola makan utamanya berupa lamun dan alga laut.",
+                    "Setelah menetas dan berenang ke laut lepas selama puluhan tahun, penyu betina dewasa memiliki naluri navigasi magnetik yang luar biasa untuk kembali ke pantai yang sama tempat ia dulu menetas.",
+                    "Kebersihan pantai dan minimnya polusi cahaya sangat krusial agar tukik yang baru menetas dapat menemukan arah menuju laut dengan selamat."
+                ]
+            }
+        ];
+
+        const articlesGrid = document.getElementById('articlesGrid');
+        const emptyState = document.getElementById('emptyState');
+        const searchInput = document.getElementById('searchInput');
+        const catButtons = document.querySelectorAll('.cat-btn');
+        
+        const modal = document.getElementById('articleModal');
+        const closeModal = document.getElementById('closeModal');
+
+        let currentCategory = 'Semua';
+        let currentSearch = '';
+
+        function renderArticles() {
+            const filtered = articles.filter(art => {
+                const matchCat = currentCategory === 'Semua' || art.category === currentCategory;
+                const matchSearch = art.title.toLowerCase().includes(currentSearch.toLowerCase()) || 
+                                    art.excerpt.toLowerCase().includes(currentSearch.toLowerCase());
+                return matchCat && matchSearch;
+            });
+
+            articlesGrid.innerHTML = '';
+
+            if (filtered.length === 0) {
+                emptyState.classList.remove('hidden');
+                return;
+            }
+            emptyState.classList.add('hidden');
+
+            filtered.forEach(art => {
+                const card = document.createElement('article');
+                card.className = "bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-gray-100 flex flex-col cursor-pointer group";
+                card.onclick = () => openArticleModal(art);
+
+                card.innerHTML = `
+                    <div class="relative overflow-hidden h-48">
+                        <img src="${art.image}" alt="${art.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute top-3 left-3 bg-[#1B4332]/90 text-white text-xs font-semibold px-3 py-1 rounded-full">
+                            ${art.category}
+                        </span>
+                    </div>
+                    <div class="p-5 flex-grow flex flex-col justify-between">
+                        <div>
+                            <div class="flex items-center text-xs text-gray-400 gap-2 mb-2">
+                                <span>${art.date}</span>
+                                <span>•</span>
+                                <span>${art.readTime}</span>
+                            </div>
+                            <h3 class="font-bold text-lg text-gray-900 mb-2 group-hover:text-[#2D6A4F] transition leading-snug">
+                                ${art.title}
+                            </h3>
+                            <p class="text-gray-600 text-sm line-clamp-3 leading-relaxed">
+                                ${art.excerpt}
+                            </p>
+                        </div>
+                        <div class="mt-4 pt-3 border-t border-gray-100 flex items-center text-[#E07A5F] font-semibold text-sm">
+                            Baca Selengkapnya <span class="ml-1 group-hover:translate-x-1 transition">→</span>
+                        </div>
+                    </div>
+                `;
+                articlesGrid.appendChild(card);
+            });
+        }
+
+        function openArticleModal(article) {
+            document.getElementById('modalImage').src = article.image;
+            document.getElementById('modalCategory').textContent = article.category;
+            document.getElementById('modalReadTime').textContent = article.readTime;
+            document.getElementById('modalDate').textContent = "• " + article.date;
+            document.getElementById('modalTitle').textContent = article.title;
+            
+            const contentDiv = document.getElementById('modalContent');
+            contentDiv.innerHTML = article.content.map(p => `<p>${p}</p>`).join('');
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function hideModal() {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        }
+
+        closeModal.addEventListener('click', hideModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) hideModal();
+        });
+
+        catButtons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                catButtons.forEach(b => {
+                    b.classList.remove('bg-[#1B4332]', 'text-white');
+                    b.classList.add('bg-white', 'text-gray-700');
+                });
+                btn.classList.remove('bg-white', 'text-gray-700');
+                btn.classList.add('bg-[#1B4332]', 'text-white');
+                
+                currentCategory = btn.getAttribute('data-cat');
+                renderArticles();
+            });
+        });
+
+        searchInput.addEventListener('input', (e) => {
+            currentSearch = e.target.value;
+            renderArticles();
+        });
+
+        renderArticles();
+    </script>
+</body>
+</html>
